@@ -13,18 +13,18 @@ class Robot:
 
     def place(self, x: int, y: int, f: str, table: Table):
         if not table.is_coord_valid(x, y):
-            raise InvalidCoordException(f"Invalid coords given, '{x}, {y}")
+            raise InvalidCoordException(f"Invalid coords ({x}, {y}) given")
 
         self._x = x
         self._y = y
         self._unit_vector = to_unit_vector(f)
 
     def throw_exception_if_not_placed(func):
-        def wrapper(self,  *args):
+        def wrapper(self,  *args,  **kwargs):
             if not self.is_placed():
                 raise NotPlacedException(
                     f"The robot is not placed on the table")
-            return func(self, *args)
+            return func(self, *args,  **kwargs)
         return wrapper
 
     @throw_exception_if_not_placed
@@ -32,7 +32,7 @@ class Robot:
         x, y = self._x + self._unit_vector[0], self._y + self._unit_vector[1]
         if not table.is_coord_valid(x, y):
             raise InvalidCoordException(
-                f"Cannot move to the position, '{x}, {y}")
+                f"The robot cannot move to the position ({x}, {y})")
 
         self._x = x
         self._y = y

@@ -1,20 +1,7 @@
 import math
 from typing import Tuple
 
-DIRECTION_TO_UNIT_VECTOR = {
-    "NORTH": (0, 1),
-    "SOUTH": (0, -1),
-    "EAST": (1, 0),
-    "WEST": (-1, 0)
-}
-
-UNIT_VECTOR_TO_DIRECTION = dict(
-    zip(DIRECTION_TO_UNIT_VECTOR.values(), DIRECTION_TO_UNIT_VECTOR.keys()))
-
-ROTATION_TO_DEGREE = {
-    "LEFT": 90,
-    "RIGHT": -90
-}
+from toyro.constant import DIRECTION_TO_UNIT_VECTOR, UNIT_VECTOR_TO_DIRECTION, ROTATION_TO_DEGREE
 
 
 def to_unit_vector(direction: str) -> Tuple[int, int]:
