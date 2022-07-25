@@ -1,4 +1,4 @@
-from toyro.util import rotate_unit_vector, to_direction
+from toyro.util.method import rotate_unit_vector, to_direction
 
 
 def test_rotate_unit_vector():

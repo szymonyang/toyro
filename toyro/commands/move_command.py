@@ -4,9 +4,10 @@ from toyro.table import Table
 
 
 class MoveCommand(BaseCommand):
-    def __init__(self, robot: Robot):
+    def __init__(self, robot: Robot, table: Table):
         super().__init__(robot)
+        self._table = table
 
     @BaseCommand.catch_operaltional_exception
-    def execute(self, table: Table):
-        self._robot.move(table)
+    def execute(self):
+        self._robot.move(self._table)

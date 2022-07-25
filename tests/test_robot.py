@@ -51,7 +51,8 @@ class TestTable:
             robot.move()
 
     def test_report_not_place(self, robot: Robot):
-        assert robot.report() is None
+        with pytest.raises(NotPlacedException):
+            robot.report()
 
     def test_rotate_not_place(self, robot: Robot):
         with pytest.raises(NotPlacedException):
