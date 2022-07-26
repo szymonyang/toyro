@@ -20,7 +20,7 @@ The command pattern is a good fit in the implementation since the robot is "comm
 
 ### Test driven development
 
-  Besides TDD allows me identify the bugs upfront, it also helps me modularise the codes and isolate the component in testing (with dependency injection).
+  Besides TDD allows me identify the bugs upfront, it also helps me modularise the codes and isolate the component in testing (with dependency injection). You can find the commit `develop` branch to see how I experimented with TDD.
   
 - Achieved 94% of the coverage
 - (TBD) Intergrate with github action or CI/CD pipeline
