@@ -7,7 +7,7 @@ def test_rotate_unit_vector():
 
 
 def test_to_direction():
-    assert to_direction(((0, 1))) == "NORTH"
-    assert to_direction(((1, 0))) == "EAST"
-    assert to_direction(((0, -1))) == "SOUTH"
-    assert to_direction(((-1, 0))) == "WEST"
+    assert to_direction((0, 1)) == "NORTH"
+    assert to_direction((1, 0)) == "EAST"
+    assert to_direction((0, -1)) == "SOUTH"
+    assert to_direction((-1, 0)) == "WEST"
