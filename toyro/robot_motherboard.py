@@ -1,6 +1,5 @@
 
 import logging
-import os
 from typing import List
 
 from pyparsing import line
@@ -11,10 +10,6 @@ from toyro.utils.parse import parse
 from toyro.table import Table
 from toyro.robot_motor import RobotMotor
 
-DIR = "input/"
-TABLE_WIDTH = 5
-TABLE_LENGTH = 5
-
 
 class RobotMotherBoard:
     def __init__(self, robot: Robot, table: Table, motor: RobotMotor):
@@ -22,10 +17,7 @@ class RobotMotherBoard:
         self._table = table
         self._motor = motor
 
-    def get_files(self, dir=DIR):
-        return os.listdir(dir)
-
-    def start(self, files: List, dir=DIR):
+    def start(self, files: List, dir: str):
         for filename in files:
             with open(dir + filename, "r") as f:
                 for line in f:

@@ -1,6 +1,6 @@
 import math
 from typing import Tuple
-
+import os
 from toyro.constant import DIRECTION_TO_UNIT_VECTOR, UNIT_VECTOR_TO_DIRECTION, ROTATION_TO_DEGREE
 
 
@@ -25,3 +25,7 @@ def rotate_unit_vector(unit_vector: Tuple[int, int], rotation: str) -> Tuple[int
     unit_i = round(cosd(deg)*unit_vector[0] - sind(deg)*unit_vector[1])
     unit_j = round(sind(deg)*unit_vector[0] + cosd(deg)*unit_vector[1])
     return (unit_i, unit_j)
+
+
+def get_files(dir):
+    return os.listdir(dir)
