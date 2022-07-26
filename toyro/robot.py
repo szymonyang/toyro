@@ -1,7 +1,7 @@
 from typing import Tuple, Optional
 from toyro.exceptions import NotPlacedException, InvalidCoordException
 from toyro.table import Table
-from toyro.util.method import rotate_unit_vector, to_direction, to_unit_vector
+from toyro.utils.method import rotate_unit_vector, to_direction, to_unit_vector
 
 
 class Robot:
@@ -42,7 +42,7 @@ class Robot:
         self._unit_vector = rotate_unit_vector(self._unit_vector, rotation)
 
     @throw_exception_if_not_placed
-    def report(self) -> Optional[Tuple[int, int, str]]:
+    def report(self) -> Tuple[int, int, str]:
         direction = to_direction(self._unit_vector)
         return (self._x, self._y, direction)
 

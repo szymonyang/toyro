@@ -8,8 +8,8 @@ from toyro.commands import PlaceCommand, LeftCommand, RightCommand, MoveCommand,
 class TestExecCommand:
 
     def test_exec_command(self, robot: Robot, table_4x4: Table):
-        p = PlaceCommand(0, 0, EAST, robot, table_4x4)
-        p.execute()
+        p = PlaceCommand(robot, table_4x4)
+        p.execute(0, 0, EAST)
 
         l = LeftCommand(robot)
         l.execute()
@@ -23,8 +23,8 @@ class TestExecCommand:
         """
         should not throw any exception
         """
-        p = PlaceCommand(10, 0, EAST, robot, table_4x4)
-        p.execute()
+        p = PlaceCommand(robot, table_4x4)
+        p.execute(10, 0, EAST)
 
     def test_catch_not_placed_exception(self, robot: Robot, table_4x4: Table):
         l = LeftCommand(robot)
@@ -40,8 +40,8 @@ class TestExecCommand:
         r.execute()
 
     def test_catch_robot_falling(self, robot: Robot, table_4x4: Table):
-        p = PlaceCommand(1, 0, SOUTH, robot, table_4x4)
-        p.execute()
+        p = PlaceCommand(robot, table_4x4)
+        p.execute(1, 0, SOUTH)
 
         m = MoveCommand(robot, table_4x4)
         m.execute()
@@ -58,4 +58,4 @@ def robot():
 
 @pytest.fixture(autouse=True)
 def table_4x4():
-    return Table(5, 5)
+    return Table(4, 4)

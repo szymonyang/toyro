@@ -9,4 +9,5 @@ class LeftCommand(BaseCommand):
 
     @BaseCommand.catch_operaltional_exception
     def execute(self):
+        super().execute()
         self._robot.rotate(LEFT)

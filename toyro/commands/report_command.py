@@ -8,5 +8,6 @@ class ReportCommand(BaseCommand):
 
     @BaseCommand.catch_operaltional_exception
     def execute(self):
+        super().execute()
         x, y, f = self._robot.report()
         print(f"Output: {x},{y},{f}")

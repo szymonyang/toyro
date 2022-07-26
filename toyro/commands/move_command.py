@@ -10,4 +10,5 @@ class MoveCommand(BaseCommand):
 
     @BaseCommand.catch_operaltional_exception
     def execute(self):
+        super().execute()
         self._robot.move(self._table)
